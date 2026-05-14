@@ -1,0 +1,91 @@
+.main_container {
+  display: flex;
+  height: 100%;
+  gap: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero_banner {
+  background-color: #f3f5f5;
+  flex: 1;
+  display: flex;
+  padding: 40px;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero_content {
+  padding-top: 10px;
+}
+
+.hero_banner > img {
+  height: 100%;
+  width: 60%;
+  border-radius: 20px;
+}
+
+.hero_content > h3 {
+  margin-top: 15px;
+  font-weight: 200;
+}
+
+.side_container {
+  flex: 0.35;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 10px;
+}
+
+.card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 25px;
+}
+
+.card > h2 {
+  position: absolute;
+  font-size: 1.2rem;
+  color: white;
+  bottom: 5%;
+  text-align: center;
+  width: 100%;
+  font-style: italic;
+}
+
+.card > img {
+  height: 100%;
+  border-radius: 25px;
+}
+
+.shopping_link {
+  background-color: rgb(183, 249, 84);
+  color: black;
+  text-decoration: none;
+  margin-top: 30px;
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 3px;
+  border-radius: 35px;
+  transition: all 0.25s ease-out;
+}
+
+.shopping_link:hover {
+  scale: 1.1;
+}
+
+.shopping_link svg {
+  color: white;
+}
+
+.shopping_link div {
+  background-color: black;
+  padding: 7px;
+  border-radius: 35px;
+  display: flex;
+  align-items: center;
+}
