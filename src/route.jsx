@@ -1,24 +1,28 @@
 import ErrorPage from "./components/ErrorPage";
 import Cart from "./components/Cart";
 import Shop from "./components/Shop";
-import Nav from "./components/Nav";
+
+import Home from "./components/Home";
 import App from "./App";
 const routes = [
   {
-    path: "/",
     element: <App />,
-    children: [{ index: true, element: <Nav /> }],
+    children: [
+      {
+        index: true,
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/shop",
+        element: <Shop />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+    ],
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/shop",
-    element: <Shop />,
-    children: [{ index: true, element: <Nav /> }],
-  },
-  {
-    path: "/cart",
-    element: <Cart />,
-    children: [{ index: true, element: <Nav /> }],
   },
 ];
 
