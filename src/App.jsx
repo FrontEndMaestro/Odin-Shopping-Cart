@@ -17,29 +17,46 @@ const useItemData = () => {
       })
       .then((jsonData) => {
         if (ignore) return;
-        setData(jsonData);
+        let data = jsonData.map((element) => ({
+          id: element.id,
+          image: element.image,
+          price: element.price,
+          cartCount: 0,
+          title: element.title,
+        }));
+        setData(data);
       })
       .catch((error) => setError(error))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+      });
 
     return () => {
       ignore = true;
     };
   }, []);
 
-  return { error, loading, data };
+  return { error, loading, data,setData };
 };
 
 export default function App() {
-  const { error, loading, data } = useItemData();
+  const { error, loading, data, setData } = useItemData();
 
   if (loading) return <div>loading</div>;
   if (error) return <div>error occured {error}</div>;
   console.log(data);
+
+  function editCartCount(id, count) {
+    let index = data.findIndex((element) => element.id == id);
+    let newData = [...data];
+    newData[index].cartCount = count;
+    setData(newData);
+  }
+
   return (
     <>
       <Nav />
-      <Outlet context={data} />
+      <Outlet context={{ data, editCartCount }} />
     </>
   );
 }
