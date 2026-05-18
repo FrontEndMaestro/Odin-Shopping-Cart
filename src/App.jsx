@@ -36,27 +36,39 @@ const useItemData = () => {
     };
   }, []);
 
-  return { error, loading, data,setData };
+  return { error, loading, data, setData };
 };
 
 export default function App() {
   const { error, loading, data, setData } = useItemData();
-
+  let totalCount = 0;
+  let totalPrice = 0;
   if (loading) return <div>loading</div>;
   if (error) return <div>error occured {error}</div>;
-  console.log(data);
+  if (data) {
+    totalCount = data.reduce((accumulator, currentElement) => {
+      return accumulator + currentElement.cartCount;
+    }, 0);
+    totalPrice = data.reduce((accumulator, currentElement) => {
+      return accumulator + currentElement.cartCount * currentElement.price;
+    }, 0);
+  }
 
   function editCartCount(id, count) {
-    let index = data.findIndex((element) => element.id == id);
-    let newData = [...data];
-    newData[index].cartCount = count;
-    setData(newData);
+    setData((prevData) => {
+      return prevData.map((element) => {
+        if (element.id === id) {
+          return { ...element, cartCount: count };
+        }
+        return element;
+      });
+    });
   }
 
   return (
     <>
-      <Nav />
-      <Outlet context={{ data, editCartCount }} />
+      <Nav totalCount={totalCount} />
+      <Outlet context={{ data, editCartCount, totalCount, totalPrice }} />
     </>
   );
 }
