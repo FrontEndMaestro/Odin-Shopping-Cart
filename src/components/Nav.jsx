@@ -3,7 +3,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import style from "../styles/nav.module.css";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-export default function Nav({ totalCount }) {
+import PropTypes from "prop-types";
+function Nav({ totalCount }) {
   return (
     <nav className={style.container}>
       <Link to="/" className={`${style.icon}`}>
@@ -22,3 +23,9 @@ export default function Nav({ totalCount }) {
     </nav>
   );
 }
+
+Nav.propTypes = {
+  totalCount: PropTypes.number,
+};
+
+export default Nav;
