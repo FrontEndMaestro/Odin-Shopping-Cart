@@ -8,6 +8,7 @@ export default function Shop() {
       <div className={`${style.container}`}>
         {data.map((element) => (
           <Card
+            key={element.id}
             id={element.id}
             imgUrl={element.image}
             title={element.title}
