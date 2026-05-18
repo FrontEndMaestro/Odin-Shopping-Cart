@@ -1,6 +1,6 @@
-import { Outlet, useOutletContext } from "react-router";
+import { useOutletContext } from "react-router";
 import style from "../styles/shop.module.css";
-import Card from "./card";
+import Card from "./Card.jsx";
 export default function Shop() {
   const { data, editCartCount } = useOutletContext();
   return (
@@ -13,6 +13,7 @@ export default function Shop() {
             title={element.title}
             price={element.price}
             editCartCount={editCartCount}
+            type={"shop"}
           ></Card>
         ))}
       </div>
