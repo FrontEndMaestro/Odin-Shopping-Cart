@@ -120,3 +120,88 @@ input:focus {
   scale: 1.05;
   box-shadow: 0 10px 20px -10px rgba(68, 69, 66, 0.5);
 }
+
+.cart-container {
+  display: flex;
+  width: 100%;
+  padding: 30px;
+  border-radius: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e8f0f2;
+}
+
+.cart-container img {
+  height: 80px;
+}
+
+.wrapper {
+  display: flex;
+  width: 60%;
+  gap: 15px;
+  align-items: center;
+}
+
+.wrapper > h3 {
+  font-size: 0.8rem;
+}
+
+.wrapper + .quantity-container {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  width: 20%;
+  margin-left: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper + .quantity-container > p {
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.edit-cart-wrapper {
+  display: flex;
+  width: 50%;
+  gap: 0px;
+}
+
+.edit-cart-wrapper > * {
+  background-color: rgb(232, 231, 231);
+}
+
+.cart-container button {
+  border: none;
+}
+
+.edit-cart-wrapper > input {
+  margin: 0;
+  outline: none;
+  border: none;
+}
+
+.edit-cart-wrapper > button:first-of-type {
+  border-radius: 10px 0px 0px 10px;
+}
+
+.edit-cart-wrapper > button:last-of-type {
+  border-radius: 0px 10px 10px 0px;
+}
+
+.remove-btn {
+  height: fit-content;
+  align-self: center;
+  background-color: #e8f0f2;
+}
+
+.remove-btn:hover > svg {
+  color: red;
+  scale: 1.2;
+  cursor: pointer;
+}
+
+.remove-btn > svg {
+  color: #afafaf;
+  height: 20px;
+}
