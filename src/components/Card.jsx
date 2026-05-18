@@ -1,10 +1,9 @@
 import style from "../styles/card.module.css";
 import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import PropTypes from "prop-types";
 
-//round price since too many zeroes are coming
-
-export default function Card({
+function Card({
   id,
   imgUrl,
   title,
@@ -115,3 +114,15 @@ export default function Card({
     </>
   );
 }
+
+Card.propTypes = {
+  id: PropTypes.number.isRequired,
+  imgUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  editCartCount: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
+  quantityInCart: PropTypes.number,
+};
+
+export default Card;

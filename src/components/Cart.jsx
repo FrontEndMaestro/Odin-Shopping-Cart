@@ -12,6 +12,7 @@ export default function Cart() {
             {data.map((element) =>
               element.cartCount != 0 ? (
                 <Card
+                  key={element.id}
                   id={element.id}
                   imgUrl={element.image}
                   title={element.title}
