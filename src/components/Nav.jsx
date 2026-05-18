@@ -3,7 +3,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import style from "../styles/nav.module.css";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-export default function Nav() {
+export default function Nav({ totalCount }) {
   return (
     <nav className={style.container}>
       <Link to="/" className={`${style.icon}`}>
@@ -15,6 +15,9 @@ export default function Nav() {
       </Link>
       <Link to="/cart" className={`${style.icon}`}>
         <ShoppingCartIcon className={`${style.svg}`} />
+        {totalCount != 0 ? (
+          <span className={style["cart-items"]}>{totalCount}</span>
+        ) : null}
       </Link>
     </nav>
   );
