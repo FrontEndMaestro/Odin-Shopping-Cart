@@ -12,7 +12,7 @@ const useItemData = () => {
     let ignore = false;
     fetch("https://fakestoreapi.com/products")
       .then((response) => {
-        if (response >= 400) {
+        if (response.status >= 400) {
           throw new Error("server error");
         }
         return response.json();
