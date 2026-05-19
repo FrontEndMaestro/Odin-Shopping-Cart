@@ -28,7 +28,7 @@ const useItemData = () => {
         }));
         setData(data);
       })
-      .catch((error) => setError(error))
+      .catch((error) => setError(error.message))
       .finally(() => {
         setLoading(false);
       });
